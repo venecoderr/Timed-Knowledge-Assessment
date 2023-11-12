@@ -1,0 +1,100 @@
+:root{
+    --butter: #FFDC00;
+    --charcoal: #2E2E2E;
+    --cream: #FEFAF2;
+    --black: #000000;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 1vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 4em;
+    background-color: var(--charcoal);
+    color: var(--cream);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+    height: 74px;
+    background-color: var(--butter);
+    margin-bottom: 20px;
+}
+header p{
+    cursor: default;
+    display: flex;
+    height: 75%;
+    width: 18%;
+    color: var(--cream);
+    text-decoration: none;
+    margin: 0px 33px;
+    background-color: var(--black);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+#highScoreBtn{
+    cursor: pointer;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+    align-self: center;
+    justify-content: center;
+}
+main section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    display: none;
+}
+
+h1{
+    font-size: 3em;
+}
+
+#starter{
+    display: flex;
+}
+
+#optionsList{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 25px 0px;
+}
+
+#optionsList li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46%;
+    border: solid 7px var(--butter);
+    border-radius: 23px;
+    background-color: var(--cream);
+    color: var(--black);
+    margin: 2%;
+    cursor: pointer;
+}
+
+#optionsList li:hover{
+    box-shadow: var(--black) 0px 5px;
+}
+
+#clock{
+    display: none;
+}
+
