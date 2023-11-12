@@ -34,12 +34,15 @@ header p{
     height: 75%;
     width: 18%;
     color: var(--cream);
-    text-decoration: none;
     margin: 0px 33px;
     background-color: var(--black);
     border-radius: 10px;
     align-items: center;
     justify-content: center;
+}
+
+#highScoreBtn:hover{
+    color: var(--butter);
 }
 
 #highScoreBtn{
@@ -55,7 +58,6 @@ main{
 }
 main section{
     width: 100%;
-    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -91,10 +93,74 @@ h1{
 }
 
 #optionsList li:hover{
-    box-shadow: var(--black) 0px 5px;
+    box-shadow: var(--black) 0px 7px;
 }
 
 #clock{
     display: none;
 }
 
+#start{
+    font-size: 1.5em;
+}
+
+#scoreBoardReset{
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 25px 0px;
+}
+
+#scoreBoardReset p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46%;
+    color: var(--cream);
+    margin: 0px 33px;
+    background-color: var(--black);
+    border-radius: 10px;
+    margin: 2%;
+    cursor: pointer;
+}
+
+#scoreBoardReset p:hover{
+    color: var(--butter);
+}
+
+#scoreBoard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#highScores nav{
+    width: 100%;
+    font-size: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.scoreEntry{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.rightOrWrongBox{
+    font-size: 1.5em;
+    border-radius: 23px;
+    background-color: var(--cream);
+    color: var(--black);
+    width: 75%;
+}
+
+
+#right{
+    border: solid 7px green;
+}
+
+#wrong{
+    border: solid 7px red;
+}
