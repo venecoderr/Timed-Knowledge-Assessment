@@ -5,9 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <title>Knowledge Assessment</title>
 </head>
 <body>
+    <header>
+        <p id="highScoreBtn">View Highscores</p>
+        <p>Time: <span>75 </span>s</p>
+    </header>
+
+    <main>
+        <section id="starter">
+            <h1>Welcome to my WebAPI Knowledge Assessment</h1>
+            <p>Click the start button to play.<br>The clock will start to go down and you will get 10 seconds for every correct answer and lose 10 seconds for every wrong one</p>
+            <button id="start">Start Test</button>
+        </section>
+
+        <section id="questionSection">
+            <h1 id="question">La pregunta va aqui</h1>
+            <ol id="optionsList">
+                <li id="optionA">Option A</li>
+                <li id="optionB">Option B</li>
+                <li id="optionC">Option C</li>
+                <li id="optionD">Option D</li>
+            </ol>
+        </section>
+
+        <section id="saveScore">
+            <h1>Save your score</h1>
+            <p>Your final score is <span id="finalScore">0 </span>points <br>Enter your initials to save your score</p>
+            <p>Initial here <input type="text" name="initials" id="initials" maxlength="2"> <button id="saveScoreBtn">Enter</button></p>
+        </section>
+
+        <section id="highScores">
+            <h1>Highscore Leaderboard</h1>
+            <ol id="scoreBoard"></ol>
+            <section>
+                <p>Clear scoreBoard</p>
+                <p>Try Again</p>
+            </section>
+        </section>
+    </main>
+    
+    
+
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
