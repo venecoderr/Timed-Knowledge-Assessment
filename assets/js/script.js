@@ -1,4 +1,6 @@
-let starterSection = document.querySelector('#starter')
+//Selectors
+
+let starterEl = document.querySelector('#starter')
 let startGame = document.querySelector('#start')
 let runGame = document.querySelector('#questionSection')
 let clock = document.querySelector('#clock')
@@ -6,39 +8,44 @@ let time = document.querySelector('#time')
 let questionDisplay = document.querySelector('#question')
 let optionsList = document.querySelector('#optionsList')
 let optionsDisplay = [document.querySelector('#optionA'), document.querySelector('#optionB'), document.querySelector('#optionC'), document.querySelector('#optionD')]
-let savePage = document.querySelector('#saveScore')
+let saveEl = document.querySelector('#saveScore')
 let saveScoreBtn = document.querySelector('#saveScoreBtn')
 let finalScore = document.querySelector('#finalScore')
 let initialInput = document.querySelector('#initials')
 let showHighScore = document.querySelector('#highScoreBtn')
-let highscorePage = document.querySelector('#highScores')
+let highscoreEl = document.querySelector('#highScores')
 let scoreBoardReset = document.querySelector('#scoreBoardReset')
 let scoreBoard = document.querySelector('#scoreBoard')
 let tryAgainBtn = document.querySelector('#tryAgain')
 let clearBtn = document.querySelector('#clear')
-let questions = ['Test Q1', 
-'Test Q2', 
-'Test Q3', 
-'Test Q4', 
-'Test Q5',
-'Test Q6', 
-'Test Q7', 
-'Test Q8', 
-'Test Q9', 
-'Test Q10']
 
-let options = [['Option A Q 1', 'Option B Q 1', 'Option C Q 1', 'Option D Q 1'],
-['Option A Q 2', 'Option B Q 2', 'Option C Q 2', 'Option D Q 2'],
-['Option A Q 3', 'Option B Q 3', 'Option C Q 3', 'Option D Q 3'],
-['Option A Q 4', 'Option B Q 4', 'Option C Q 4', 'Option D Q 4'],
-['Option A Q 5', 'Option B Q 5', 'Option C Q 5', 'Option D Q 5'],
-['Option A Q 6', 'Option B Q 6', 'Option C Q 6', 'Option D Q 6'],
-['Option A Q 7', 'Option B Q 7', 'Option C Q 7', 'Option D Q 7'],
-['Option A Q 8', 'Option B Q 8', 'Option C Q 8', 'Option D Q 8'],
-['Option A Q 9', 'Option B Q 9', 'Option C Q 9', 'Option D Q 9'],
-['Option A Q 10', 'Option B Q 10', 'Option C Q 10', 'Option D Q 10']]
+//Questions and Options
 
-let correctAnswers = [0, 1, 2, 3, 2, 3, 1, 0, 3, 1 ]
+let questions = ['What selector can be use with the querySelector method?', 
+'What parameter do we usually pass into the function of an eventListener?', 
+'What attributes can be set with the setAttribute method?', 
+'What method can I use to select HTML elements?', 
+'What is the correct syntax for the append mnethod?',
+'What function stops a timer before the time runs out?', 
+'How many parameters does the eventListener function requires?', 
+'If there is an eventListener on parent and child elements..?', 
+'What are the types of keyBoard events?', 
+'Local storage is?']
+
+let options = [['IDs', 'Classes', 'Element names', 'all of the above'],
+['Object', 'Event', 'Variable', 'Method'],
+['Element attributes', 'Class attributes', 'CSS attributes', 'Js attributes'],
+['quarrySelector', 'selectElement', 'getElementByID', 'all of them'],
+['parentElement.append(childElement)', 'parentElement.append = childElement', 'parentElement.append: childElement', 'none of them'],
+['stopInterval()', 'clearTimer()', 'clearInterval()', 'stopTimer()'],
+['1', '2', '7', 'none'],
+['triggering the child will trigger the parent', 'triggering the parent will trigger the child', 'both', 'nothing happens'],
+['keyUp', 'keyDown', 'Both', 'neither'],
+['Safe and protected', 'Could backed-up', 'Hard to access', 'Unsafe and unprotected']]
+
+let correctAnswers = [3, 1, 0, 2, 0, 2, 1, 0, 2, 3 ]
+
+//Game variables
 
 let usedQuestions = []
 let selector = 0
@@ -47,7 +54,11 @@ let answer = ''
 let timeLeft = 0
 let timeStop = false
 
+//Main test functions
+
 function pickQuestion(){
+
+    //Function picks question
     
     selector = Math.floor(Math.random()*questions.length)
     while(usedQuestions.includes(selector)){
@@ -63,7 +74,9 @@ function pickQuestion(){
     usedQuestions+= selector
 }
 
-function startGameFunction(){
+function startTest(){
+
+    //Function starts test
 
     usedQuestions = []
     selector = 0
@@ -72,16 +85,19 @@ function startGameFunction(){
     timeStop = false
     timeLeft = 60
 
-    starterSection.setAttribute('style', 'display: none')
+    starterEl.setAttribute('style', 'display: none')
     runGame.setAttribute('style', 'display: flex')
     clock.setAttribute('style', 'display: flex')
-    highscorePage.setAttribute('style', 'display: none')
+    highscoreEl.setAttribute('style', 'display: none')
     timeStop = false
 
     pickQuestion()
 }
 
 function selectAnswer(event){
+
+    //Function allows selection of option, validates answer and runs points and time bonus
+
     answerSelected = event.target.getAttribute('id')
 
     let rightOrWrong = document.createElement('h2')
@@ -135,15 +151,23 @@ function selectAnswer(event){
     }
 }
 
+//Save page functions
+
 function showSaveScore (){
+
+    //shows saving page
+
     finalScore.textContent = score + ' '
 
     runGame.setAttribute('style', 'display: none')
-    savePage.setAttribute('style', 'display: flex')
+    saveEl.setAttribute('style', 'display: flex')
     clock.setAttribute('style', 'display: none')
 }
 
 function saveScore(event){
+
+    //function saves score and appends to leaderboard
+
     let initials = initialInput.value
     let entryName = document.createElement('h3')
     let entryScore = document.createElement('h3')
@@ -157,20 +181,28 @@ function saveScore(event){
     entry.setAttribute('class', 'scoreEntry')
     scoreBoard.append(entry)
 
-    showHighScorePage()
+    showHighScoreEl()
 }
 
-function showHighScorePage(event){
-    starterSection.setAttribute('style', 'display: none')
+//Leaderboard functions
+
+function showHighScoreEl(event){
+
+    //Shows scores
+
+    starterEl.setAttribute('style', 'display: none')
     runGame.setAttribute('style', 'display: none')
     clock.setAttribute('style', 'display: none')
-    savePage.setAttribute('style', 'display: none')
-    highscorePage.setAttribute('style', 'display: flex')
+    saveEl.setAttribute('style', 'display: none')
+    highscoreEl.setAttribute('style', 'display: flex')
     scoreBoardReset.setAttribute('style', 'display: flex')
     timeStop = true
 }
 
 function clearScores(event){
+
+    //Clears leaderboard
+
     let savedScores = document.querySelectorAll('.scoreEntry')
 
     for(let i = 0; i < savedScores.length; i++){
@@ -179,8 +211,10 @@ function clearScores(event){
 
 }
 
+//Engine runs the apps
+
 function engine(event) {
-    startGameFunction()
+    startTest()
 
     var timerInterval = setInterval(function() {
       timeLeft--;
@@ -196,13 +230,13 @@ function engine(event) {
       }
   
     }, 1000);
-  }
+}
 
-
+//Event listeners
 
 startGame.addEventListener('click', engine)
 optionsList.addEventListener('click', selectAnswer)
-showHighScore.addEventListener('click', showHighScorePage)
+showHighScore.addEventListener('click', showHighScoreEl)
 saveScoreBtn.addEventListener('click', saveScore)
 tryAgainBtn.addEventListener('click', engine)
 clearBtn.addEventListener('click', clearScores)
